@@ -1,0 +1,73 @@
+{
+    type: "list", 
+    data: {
+        rows: pets.map(pet => {
+            return {
+                id: pet.petId, 
+                title: pet.title, 
+                description: pet.description, 
+                imageUrl: pet.imageUrl 
+            }
+        }), 
+        action: {
+            type: "sheet", 
+            destination: "petProfile"
+        } 
+    }
+},
+
+
+ {
+                type: "carousel",
+                data: {
+                    items: pets.map(pet => {
+                        return {
+                            petId: pet.petId,
+                            imageUrl: pet.imageUrl
+                        }
+                    }),
+                    action: {
+                        type: "sheet",
+                        destination: "petDetail"
+                    }
+                },
+            }, 
+
+
+
+               {
+                type: 'ratingRow',
+                data: {
+                    rating: pet.rating
+                }
+            }
+
+
+
+
+
+
+     {
+                type: "ratingRow", 
+                data: {
+                    rating: featuredPet.rating
+                }
+
+            }, 
+            {
+                type: "list", 
+                data: {
+                    rows: pets.map(pet => {
+                        return {
+                            id: pet.petId, 
+                            title: pet.title, 
+                            description: pet.description, 
+                            imageUrl: pet.imageUrl 
+                        }
+                    }),
+                    action: {
+                        type: "push", 
+                        destination: "petDetail"
+                    } 
+                }
+            }
